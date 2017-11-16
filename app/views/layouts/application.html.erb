@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Rails Devise" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Devise" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-  </body>
-</html>
+<br/>
+<% if user_signed_in? %><span class="button" style="position: relative;left:1285px"><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', style: "text-decoration: none;color: black" %></span><% end %>
+
+<%= render 'layouts/messages' %>
+<%= yield %>

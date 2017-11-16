@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <style>
+        .sri{
+            margin:  0 auto;
+            border: 2px solid white;
+            width:200px;
+            height: 200px;
+            border-width: 5px;
+            background-color:white;
+            display: inline-block;
+    
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            margin-right: 10px;
+        }
+        .imgdes{
+            padding:25px;
+            text-align: center;
+            font-weight: bold;
+            color:black;
+        }
+        .imgdes:hover
+        {
+            color: white;
+            background: black;
+        }
+        body{
+            background-image: url("assets/reg.jpg");
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        .button{
+  padding: 15px 25px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+.block-display button{
+  margin:auto;
+  display:block;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+    
+    
+        </style>
+    
+    </head>
+    <body>
+        <center>
+        <div class="sri">
+            <img src="assets/p1.jpg" alt="">
+            <div class="imgdes">
+                Name:Shivu
+                Age:30
+                sex:Male
+                Locality:Malleshwaram
+            </div>
+        </div>
+    
+        <div class="sri">
+            <img src="assets/p2.jpg" alt="">
+            <div class="imgdes">
+                Name:Basavaraj
+                Age:38
+                sex:Male
+                Locality:Peenya
+            </div>
+        </div>
+    
+        <div class="sri">
+            <img src="assets/p3.jpg" alt="">
+            <div class="imgdes">
+                Name:Basavaraj
+                Age:38
+                sex:Male
+                Locality:Peenya
+            </div>
+        </div>
+    <br>
+    <br>
+        </center>
+        <%= form_for Booking.new do |f| %>
+        <label>Name:</label>
+        <input type="text" placeholder="Enter Name" name="booking[name]" id="booking_name">
+        <br>
+        <br>
+        <label>Phone:</label>
+        <input type="text" placeholder="Enter phonenum" name="booking[phone]" id="booking_phone">
+        <br>
+        <br>
+        <label>Email-id:</label>
+        <input type="text" placeholder="Enter email" name="booking[email]" id="booking_email">
+        <br>
+        <br>
+         <label>Address:</label>
+        <input type="text" placeholder="Enter address" name="booking[address]" id="booking_address">
+        <br>
+        <br>
+        <label >carpenter:</label>
+           <%= f.select :worker, ["Shivu", "Basavaraj", "Basavaraj"] %>
+            
+                 <br>
+                 <br>
+
+                 <label>Time slot:</label>
+                 Morning(9am-11am) <%= f.radio_button :timeslot, 'morning' %>
+                 Afternoon(1pm-4pm) <%= f.radio_button :timeslot, 'afternoon' %>
+                 Evening(5pm-8pm) <%= f.radio_button :timeslot, 'evening' %>
+                <br>
+                <br>
+                    <button class="button" >Register</button>
+                    <span class="button"><%= link_to "Back", root_path, style: "text-decoration:none;color: white" %></span>
+    <% end %>
+        
+        </body>
+    </html>

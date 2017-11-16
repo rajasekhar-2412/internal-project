@@ -1,28 +1,105 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Sign in</h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%- if devise_mapping.registerable? %>
-        <%= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
-      <% end -%>
-      <%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%- if devise_mapping.recoverable? %>
-        <%= link_to "Forgot password?", new_password_path(resource_name), class: 'right' %>
-      <% end -%>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-      <%= f.submit 'Sign in', :class => 'button right' %>
-      <% if devise_mapping.rememberable? -%>
-        <div class="checkbox" style="width:150px">
-          <label>
-            <%= f.check_box :remember_me %> Remember me
-          </label>
-        </div>
-      <% end -%>
-  <% end %>
-</div>
+<html>
+        <style>
+        form {
+            border: 3px solid #f1f1f1;
+        }
+        
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            opacity: 0.8;
+        }
+        
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+        
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+        
+        img.avatar {
+            width: 20%;
+            border-radius: 50%;
+        }
+        
+        .container {
+            padding: 16px;
+        }
+        
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+        
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+               display: block;
+               float: none;
+            }
+            .cancelbtn {
+               width: 100%;
+            }
+        }
+        body{
+            color: white;
+            background-image: url("/assets/limg.jpg");
+            background-size:cover;
+            background-repeat: no-repeat;
+            }
+            h1{
+                font-size: 50px;
+                color: white;
+            }
+        </style>
+        <body>
+        
+        <center><h1>Login Form</h1></center>
+        
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="imgcontainer">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/7a5fc28680925.560c1844a6b20.jpg" alt="Avatar" class="avatar">
+          </div>
+        
+          <div class="container">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="user[email]" id="user_email" required>
+        
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="user[password]" id="user_password" required>
+                
+            <button type="submit">Login</button>
+            <input type="checkbox" checked="checked" id="remember_me"> Remember me
+          </div>
+        
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        <% end %>
+        
+        </body>
+        </html>
+        
